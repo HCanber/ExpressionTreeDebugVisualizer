@@ -32,7 +32,12 @@ namespace ExpressionTreeViewer
 				if(expression is ConstantExpression)
 				{
 					var expr = expression as ConstantExpression;
-					node = new ExpressionTreeNodeModel(expression, "ConstantExpression", value: string.Format("[{0}]: {1}", expr.Type.Name, expr.Value));
+					var value = expr.Value;
+					string valueStr;
+					if(value == null) valueStr = "<null>";
+					else if(value is string) valueStr = "\"" + value + "\"";
+					else valueStr = value.ToString();
+					node = new ExpressionTreeNodeModel(expression, "ConstantExpression", value: string.Format("[{0}]: {1}", expr.Type.Name, valueStr));
 				}
 				if(expression is DebugInfoExpression)
 				{
@@ -42,7 +47,7 @@ namespace ExpressionTreeViewer
 				if(expression is DefaultExpression)
 				{
 					var expr = expression as DefaultExpression;
-					node = new ExpressionTreeNodeModel(expression, "DefaultExpression", value: expr.Type.Name);
+					node = new ExpressionTreeNodeModel(expression, "DefaultExpression", value: "default("+expr.Type.Name+")");
 				}
 				if(expression is DynamicExpression)
 				{
@@ -105,7 +110,7 @@ namespace ExpressionTreeViewer
 				{
 					var expr = expression as MemberInitExpression;
 					node = new ExpressionTreeNodeModel(expression, "MemberInitExpression", value: expr.NewExpression.Type);
-					expr.Bindings.ToList().ForEach(b => node.Nodes.Add(new ExpressionTreeNodeModel(expression,"xxxxx",b.ToString())));
+					expr.Bindings.ToList().ForEach(b => node.Nodes.Add(new ExpressionTreeNodeModel(null,"MemberBinding",b.ToString())));
 				}
 				if(expression is MethodCallExpression)
 				{
@@ -166,7 +171,7 @@ namespace ExpressionTreeViewer
 				if(expression is TypeBinaryExpression)
 				{
 					var expr = expression as TypeBinaryExpression;
-					node = new ExpressionTreeNodeModel(expression, "TypeBinaryExpression",nodesDescription:"Operand",value:expr.TypeOperand);
+					node = new ExpressionTreeNodeModel(expression, "TypeBinaryExpression",nodesDescription:"Operand",value:GetSimpleExpression(expr.Expression,"operand") + " is " + expr.TypeOperand);
 					node.Nodes.Add(GetExpressionTreeNodeModel(expr.Expression));
 				}
 				if(expression is UnaryExpression)
@@ -182,5 +187,32 @@ namespace ExpressionTreeViewer
 				node.ExpressionString = expression.ToString();
 				return node;
 			}
+
+	    private static string GetSimpleExpression(Expression expression, string defaultValue)
+	    {
+				if(expression is ConstantExpression)
+				{
+					var expr = expression as ConstantExpression;
+					var value = expr.Value;
+					string valueStr;
+					if(value == null) valueStr = "<null>";
+					else if(value is string) valueStr = "\"" + value + "\"";
+					else valueStr = value.ToString();
+					return valueStr;
+				}
+				if(expression is DefaultExpression)
+				{
+					var expr = expression as DefaultExpression;
+					return "default(" + expr.Type.Name + ")";
+				}
+				if(expression is ParameterExpression)
+				{
+					var expr = expression as ParameterExpression;
+					return expr.Name;
+				}
+		    return defaultValue;
+	    }
 		}
+
+
 }

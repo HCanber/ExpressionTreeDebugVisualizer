@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using ExpressionTreeViewer;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
@@ -13,7 +14,10 @@ namespace TestApp
 			var languages = new[] { "C#", "J#", "VB", "Delphi", "F#", "COBOL", "Python" };
 			var queryable = languages.AsQueryable().Where(l => l.EndsWith("#") && l != "j#")
 					.Take(3).Select(l => new { Name = l, IsSelected = true });
-			new VisualizerDevelopmentHost(queryable.Expression, typeof(ExpressionTreeVisualizer), typeof(ExpressionTreeObjectSource)).ShowVisualizer();
+
+			var expression = queryable.Expression;
+
+			new VisualizerDevelopmentHost(expression, typeof(ExpressionTreeVisualizer), typeof(ExpressionTreeObjectSource)).ShowVisualizer();
 		}
 	}
 }
