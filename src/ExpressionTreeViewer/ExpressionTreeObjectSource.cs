@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
 namespace ExpressionTreeViewer
@@ -7,8 +8,9 @@ namespace ExpressionTreeViewer
     {
         public override void GetData(object target, System.IO.Stream outgoingData)
         {
-            ExpressionTreeNode root = ExpressionTreeBuilder.GetExpressionTreeNode((Expression)target);
-            Serialize(outgoingData, root);
+	        var expression = (Expression)target;
+					var tuple = ExpressionTreeBuilder.GetExpressionTreeNodeModel(expression);
+	        Serialize(outgoingData,tuple);
         }
     }
 }
