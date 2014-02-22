@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.DebuggerVisualizers;
 
 namespace ExpressionTreeViewer
 {
-    public class ExpressionTreeObjectSource : VisualizerObjectSource
-    {
-        public override void GetData(object target, System.IO.Stream outgoingData)
-        {
-	        var expression = (Expression)target;
-					var tuple = ExpressionTreeBuilder.GetExpressionTreeNodeModel(expression);
-	        Serialize(outgoingData,tuple);
-        }
-    }
+	public class ExpressionTreeObjectSource : VisualizerObjectSource
+	{
+		public override void GetData(object target, System.IO.Stream outgoingData)
+		{
+			var expression = (Expression)target;
+			var model = ExpressionTreeBuilder.GetExpressionTreeNodeModel(expression);
+			Serialize(outgoingData, model);
+		}
+	}
 }
