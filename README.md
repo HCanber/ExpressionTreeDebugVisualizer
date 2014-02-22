@@ -14,4 +14,10 @@ Copy the dll to any of the following locations:
 
 
 ##To use
-Visualizers are represented in the debugger by a magnifying glass icon. When you see the magnifying glass icon in a DataTip, in a debugger variables window, or in the QuickWatch dialog box, next to a Expression, you can click the magnifying glass to show the expression as a tree.
+Visualizers are represented in the debugger by a magnifying glass icon. 
+
+![Click magnifying icon](https://raw.github.com/HCanber/ExpressionTreeDebugVisualizer/screenshots/show.png)
+
+When you see the magnifying glass icon in a DataTip, in a debugger variables window, or in the QuickWatch dialog box, next to a Expression, you can click the magnifying glass to show the expression as a tree.
+
+![Visualizing an Expression Tree](https://raw2.github.com/HCanber/ExpressionTreeDebugVisualizer/screenshots/visualizer.png)
