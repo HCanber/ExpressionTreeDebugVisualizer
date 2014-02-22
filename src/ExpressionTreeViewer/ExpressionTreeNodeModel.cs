@@ -7,7 +7,7 @@ namespace ExpressionTreeViewer
 	[Serializable]
 	public class ExpressionTreeNodeModel
 	{
-		public ExpressionTreeNodeModel(Expression expression,string name,  string nodesDescription = "", object value=null)
+		public ExpressionTreeNodeModel(Expression expression,string name,  string nodesDescription = "", string value=null)
 		{
 			NodeType = expression == null ? null: expression.NodeType.ToString();
 			Name = name;
@@ -20,7 +20,7 @@ namespace ExpressionTreeViewer
 		public string NodeType { get; set; }
 		public string Name { get; set; }
 		public string NodesDescription { get; set; }
-		public object Value { get; set; }
+		public string Value { get; set; }
 		public List<ExpressionTreeNodeModel> Nodes { get; private set; }
 		public string ExpressionString { get; set; }
 		public string Prefix { get; set; }

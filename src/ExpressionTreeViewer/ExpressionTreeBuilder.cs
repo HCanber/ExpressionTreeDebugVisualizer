@@ -13,7 +13,7 @@ namespace ExpressionTreeViewer
 			if(expression is BinaryExpression)
 			{
 				var expr = expression as BinaryExpression;
-				node = new ExpressionTreeNodeModel(expression, "BinaryExpression", value: expr.NodeType);
+				node = new ExpressionTreeNodeModel(expression, "BinaryExpression", value: expr.NodeType.ToString());
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.Left, "Left"));
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.Right, "Right"));
 			}
@@ -26,7 +26,7 @@ namespace ExpressionTreeViewer
 			else if(expression is ConditionalExpression)
 			{
 				var expr = expression as ConditionalExpression;
-				node = new ExpressionTreeNodeModel(expression, "ConditionalExpression", value: expr.NodeType);
+				node = new ExpressionTreeNodeModel(expression, "ConditionalExpression", value: expr.NodeType.ToString());
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.Test, "Test"));
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.IfTrue, "IfTrue"));
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.IfFalse, "IfFalse"));
@@ -71,7 +71,7 @@ namespace ExpressionTreeViewer
 			else if(expression is InvocationExpression)
 			{
 				var expr = expression as InvocationExpression;
-				node = new ExpressionTreeNodeModel(expression, "InvocationExpression", nodesDescription: "Arguments", value: expr.Expression);
+				node = new ExpressionTreeNodeModel(expression, "InvocationExpression", nodesDescription: "Arguments");
 				expr.Arguments.ToList().ForEach(a => node.Nodes.Add(GetExpressionTreeNodeModel(a)));
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.Expression, "Expression"));
 			}
@@ -179,7 +179,7 @@ namespace ExpressionTreeViewer
 			else if(expression is UnaryExpression)
 			{
 				var expr = expression as UnaryExpression;
-				node = new ExpressionTreeNodeModel(expression, "UnaryExpression", nodesDescription: "Operand", value: expr.NodeType);
+				node = new ExpressionTreeNodeModel(expression, "UnaryExpression", nodesDescription: "Operand", value: expr.NodeType.ToString());
 				node.Nodes.Add(GetExpressionTreeNodeModel(expr.Operand));
 			}
 			else
