@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTreeViewer", "ExpressionTreeViewer\ExpressionTreeViewer.csproj", "{E2FF72F9-B1A5-4673-BED0-A06F46C3E3E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{C795C4E5-E8D1-43E8-8CAA-309D540137ED}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs19
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ExpressionTreeViewer\\ExpressionTreeViewer.csproj
+		SccProjectName1 = ExpressionTreeViewer
+		SccLocalPath1 = ExpressionTreeViewer
+		SccProjectUniqueName2 = TestApp\\TestApp.csproj
+		SccProjectName2 = TestApp
+		SccLocalPath2 = TestApp
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2FF72F9-B1A5-4673-BED0-A06F46C3E3E9}.Debug|x86.ActiveCfg = Debug|x86
+		{E2FF72F9-B1A5-4673-BED0-A06F46C3E3E9}.Debug|x86.Build.0 = Debug|x86
+		{E2FF72F9-B1A5-4673-BED0-A06F46C3E3E9}.Release|x86.ActiveCfg = Release|x86
+		{E2FF72F9-B1A5-4673-BED0-A06F46C3E3E9}.Release|x86.Build.0 = Release|x86
+		{C795C4E5-E8D1-43E8-8CAA-309D540137ED}.Debug|x86.ActiveCfg = Debug|x86
+		{C795C4E5-E8D1-43E8-8CAA-309D540137ED}.Debug|x86.Build.0 = Debug|x86
+		{C795C4E5-E8D1-43E8-8CAA-309D540137ED}.Release|x86.ActiveCfg = Release|x86
+		{C795C4E5-E8D1-43E8-8CAA-309D540137ED}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
