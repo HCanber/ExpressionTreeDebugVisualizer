@@ -6,6 +6,8 @@ Updated for Visual Studio 2013 and with WPF window instead of WinForm.
 
 
 ##To install
+Download the dll from [Releases](https://github.com/HCanber/ExpressionTreeDebugVisualizer/releases).
+
 Copy the dll to any of the following locations:
 
 - %userprofile%\Documents\Visual Studio 2013\Visualizers
@@ -13,7 +15,7 @@ Copy the dll to any of the following locations:
 - %programfiles%\Microsoft Visual Studio 12.0\Common7\Packages\Debugger\Visualizers
 
 
-##To use
+##Usage
 Visualizers are represented in the debugger by a magnifying glass icon. 
 
 ![Click magnifying icon](https://raw.github.com/HCanber/ExpressionTreeDebugVisualizer/screenshots/show.png)
